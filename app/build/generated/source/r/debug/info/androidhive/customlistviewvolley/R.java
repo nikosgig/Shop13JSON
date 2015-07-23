@@ -17,7 +17,8 @@ public final class R {
         public static final int list_row_hover_end_color=0x7f060003;
         public static final int list_row_hover_start_color=0x7f060004;
         public static final int list_row_start_color=0x7f060005;
-        public static final int year=0x7f060006;
+        public static final int price=0x7f060006;
+        public static final int year=0x7f060007;
     }
     public static final class dimen {
         public static final int activity_horizontal_margin=0x7f040000;

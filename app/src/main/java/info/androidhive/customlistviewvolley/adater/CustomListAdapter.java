@@ -9,10 +9,17 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.RelativeSizeSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
@@ -59,11 +66,12 @@ public class CustomListAdapter extends BaseAdapter {
 				.findViewById(R.id.thumbnail);
 		TextView name = (TextView) convertView.findViewById(R.id.name);
 		TextView price = (TextView) convertView.findViewById(R.id.price);
+		Button button = (Button) convertView.findViewById(R.id.button);
 		//TextView genre = (TextView) convertView.findViewById(R.id.genre);
 		//TextView year = (TextView) convertView.findViewById(R.id.releaseYear);
 
 		// getting pruduct data for the row
-		Product m = productItems.get(position);
+		final Product m = productItems.get(position);
 
 		// thumbnail image
 		thumbNail.setImageUrl(m.getThumbnailUrl(), imageLoader);
@@ -73,8 +81,38 @@ public class CustomListAdapter extends BaseAdapter {
 		
 		// price
 		String euro = "\u20ac";
-		price.setText(String.valueOf(m.getPrice()) + " " + euro);
-		
+		String[] parts = String.valueOf(m.getPrice()+euro).split("\\.");
+		//String text = "<span>" + parts[0] + "</span><sub>" + parts[1] + "</sub>";
+		//String text = "<font size=200 color=#cc0029>" + parts[0] + "</font> <font color=#ffcc00>" + parts[1] + "</font>";
+		//price.setText(String.valueOf(m.getPrice()) + " " + euro);
+
+		/*final SpannableString text = new SpannableString(parts[0]);
+		final SpannableString text1 = new SpannableString(parts[1]);
+		text.setSpan(new RelativeSizeSpan(2.0f), 0, 1,
+				Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+		text1.setSpan(new RelativeSizeSpan(0.5f), 2, 5,
+				Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);*/
+		Spannable mainPrice = new SpannableString(parts[0]);
+
+		mainPrice.setSpan(new RelativeSizeSpan(3.5f), 0, mainPrice.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+		price.setText(mainPrice);
+		Spannable subPrice = new SpannableString("." + parts[1]);
+
+		subPrice.setSpan(new RelativeSizeSpan(1.2f), 0, subPrice.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+		price.append(subPrice);
+
+		button.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Uri uri = Uri.parse(m.getSiteUrl()); // missing 'http://' will cause crashed
+				Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+				v.getContext().startActivity(intent);
+			}
+		});
+
+
+		//price.setText(Html.fromHtml(text));
 		// genre
 		/*String genreStr = "";
 		for (String str : m.getGenre()) {

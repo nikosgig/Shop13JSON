@@ -8,6 +8,7 @@
     <color name="list_row_hover_end_color">#ebeef0</color>
     <color name="list_row_hover_start_color">#ebeef0</color>
     <color name="list_row_start_color">#ffffff</color>
+    <color name="price">#af1210</color>
     <color name="year">#888888</color>
     <!-- From: file:/E:/AndroidStudioProjects/CustomListViewVolley1/app/src/main/res/values/dimens.xml -->
     <eat-comment/>

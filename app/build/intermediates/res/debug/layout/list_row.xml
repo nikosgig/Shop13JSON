@@ -31,9 +31,11 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/name"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="25dip"
         android:layout_toRightOf="@+id/thumbnail"
         android:gravity="center"
+        android:textColor="@color/price"
         android:textSize="@dimen/price" />
 
     <Button
@@ -42,12 +44,11 @@
         android:text="ΑΓΟΡΑ"
         android:id="@+id/button"
         android:layout_below="@+id/price"
-        android:layout_marginTop="25dip"
-        android:layout_marginLeft="52dip"
+        android:layout_centerInParent="true"
         android:layout_toRightOf="@+id/thumbnail"
-        android:layout_toEndOf="@+id/thumbnail"
+        android:layout_marginTop="25dip"
         android:textSize="@dimen/button"
-        />
+         />
 
 
 </RelativeLayout><!-- From: file:/E:/AndroidStudioProjects/CustomListViewVolley1/app/src/main/res/layout/list_row.xml -->
