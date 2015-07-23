@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="E:\AndroidStudioProjects\CustomListViewVolley1\app\libs\volley.jar"
+        jumboMode="false"
+        revision="23.0.0 rc3"
+        sha1="d4aaa36e04ee71a83444f8367c97a46fda662d2c">
+        <dex dex="E:\AndroidStudioProjects\CustomListViewVolley1\app\build\intermediates\pre-dexed\debug\volley-a98bd2a99ee9f1e0a4a320d4db1640e2e4ed9ebf.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nikos\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="23.0.0 rc3"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
+        <dex dex="E:\AndroidStudioProjects\CustomListViewVolley1\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-7a8e4e4f68215f905fc534859fa2032ca533f85b.jar" />
+    </item>
+
+</items>
