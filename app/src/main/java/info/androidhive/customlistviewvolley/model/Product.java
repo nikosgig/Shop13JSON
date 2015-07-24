@@ -1,7 +1,6 @@
 package info.androidhive.customlistviewvolley.model;
 
-import java.util.ArrayList;
-
+//This model class will be used to provide product objects data to list view after parsing the json.
 public class Product {
 	private String name, thumbnailUrl, price,  siteUrl, type;
 	private int id;

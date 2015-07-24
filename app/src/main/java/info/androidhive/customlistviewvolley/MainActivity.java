@@ -3,33 +3,27 @@ package info.androidhive.customlistviewvolley;
 import info.androidhive.customlistviewvolley.adater.CustomListAdapter;
 import info.androidhive.customlistviewvolley.app.AppController;
 import info.androidhive.customlistviewvolley.model.Product;
-
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.http.protocol.HTTP;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.widget.ListView;
-
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 
 public class MainActivity extends Activity {
+
 	// Log tag
 	private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -38,11 +32,12 @@ public class MainActivity extends Activity {
 
 	private ProgressDialog pDialog;
 	private List<Product> productList = new ArrayList<Product>();
+	//tha xrisimopoiithoun argotera
 	/*private List<Product> caseList = new ArrayList<Product>();
 	private List<Product> protectorList = new ArrayList<Product>();
 	private List<Product> partsList = new ArrayList<Product>();
 	private List<Product> chargeList = new ArrayList<Product>();*/
-	String caseType="144", protectorType="176", partsType="174", chargeType="180";
+	//String caseType="144", protectorType="176", partsType="174", chargeType="180";
 	private ListView listView;
 	private CustomListAdapter adapter;
 
@@ -52,7 +47,9 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		listView = (ListView) findViewById(R.id.list);
+		//adapter gia ola ta proionta
 		adapter = new CustomListAdapter(this, productList);
+		//i lista mas tha exei ta periexomena tou adapter
 		listView.setAdapter(adapter);
 
 		pDialog = new ProgressDialog(this);
@@ -79,26 +76,18 @@ public class MainActivity extends Activity {
 								JSONObject obj = response.getJSONObject(i);
 								Product product = new Product();
 								product.setId(((Number) obj.get("id")).intValue());
+								//greek encoding
                                 try {
                                     product.setName(new String(obj.getString("name").getBytes("ISO-8859-7"), "UTF-8"));
                                 } catch (UnsupportedEncodingException e) {
                                     e.printStackTrace();
                                 }
 								product.setThumbnailUrl(obj.getString("img"));
-								//product.setRating(((Number) obj.get("rating")).doubleValue());
 								product.setPrice(obj.getString("price"));
                                 product.setSiteUrl(obj.getString("url"));
                                 product.setType(obj.getString("type"));
 
-								// Genre is json array
-								/*JSONArray genreArry = obj.getJSONArray("genre");
-								ArrayList<String> genre = new ArrayList<String>();
-								for (int j = 0; j < genreArry.length(); j++) {
-									genre.add((String) genreArry.get(j));
-								}
-								product.setGenre(genre);*/
-
-								// adding product to movies array
+								// adding product to products array
 								productList.add(product);
 
 
