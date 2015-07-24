@@ -38,6 +38,11 @@ public class MainActivity extends Activity {
 
 	private ProgressDialog pDialog;
 	private List<Product> productList = new ArrayList<Product>();
+	/*private List<Product> caseList = new ArrayList<Product>();
+	private List<Product> protectorList = new ArrayList<Product>();
+	private List<Product> partsList = new ArrayList<Product>();
+	private List<Product> chargeList = new ArrayList<Product>();*/
+	String caseType="144", protectorType="176", partsType="174", chargeType="180";
 	private ListView listView;
 	private CustomListAdapter adapter;
 
@@ -95,6 +100,7 @@ public class MainActivity extends Activity {
 
 								// adding product to movies array
 								productList.add(product);
+
 
 							} catch (JSONException e) {
 								e.printStackTrace();
